@@ -5,7 +5,12 @@ function Companies () {
   const companies = useSelector(state => state.companies.companies);
 
   const list = () => companies.map(company => <div key={company._id}>
-    <h1>{company.name}</h1>
+    <h2>{company.name}</h2>
+    <h4>{company.mobileNo}</h4>
+    <h4>{company.email}</h4>
+    <h4>{company.website}</h4>
+    <p>{company.physicalAddress}</p>
+
   </div>)
 
   return (

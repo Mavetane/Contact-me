@@ -14,7 +14,7 @@ const adminReducer = (state = initialState, action) => {
         ...state, queries: action.payload
       }
     case GET_ENQUIRIES:
-      return { ...state, queryData: action.payload };
+      return { ...state, enquiries: action.payload };
     case HANDLE_AUTH:
       return { state, auth: action.payload }
     default:

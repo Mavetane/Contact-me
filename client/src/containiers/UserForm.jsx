@@ -5,7 +5,7 @@ import { sendEnquiry } from '../redux/actions/userAction';
 
 
 function UserForm () {
-  const [formInfo, setFormInfo] = useState({ name: "", surname: "", email: "", mobileNo: "", question: "" });
+  const [formInfo, setFormInfo] = useState({ name: "", surname: "", email: "", mobileNo: "", question: "", companyName: "" });
   const dispatch = useDispatch()
 
 
@@ -16,12 +16,12 @@ function UserForm () {
   const onSubmit = (e) => {
     e.preventDefault()
     dispatch(sendEnquiry(formInfo))
-    // if (formInfo.name == "") alert('Name input is required')
-    // if (formInfo.surname == "") alert('Surname input is required')
-    // if (formInfo.email == "") alert('Email input is required')
-    // if (formInfo.mobileNo == "") alert('Number input is required')
-    // if (formInfo.mobileNo.length < 10) alert("Number should be at least 10 digits")
-    // if (formInfo.question == "") alert('Question input required')
+    if (formInfo.name == "") alert('Name input is required')
+    if (formInfo.surname == "") alert('Surname input is required')
+    if (formInfo.email == "") alert('Email input is required')
+    if (formInfo.mobileNo == "") alert('Number input is required')
+    if (formInfo.mobileNo.length < 10) alert("Number should be at least 10 digits")
+    if (formInfo.question == "") alert('Question input required')
     console.log('formInfo', formInfo)
   }
 
@@ -30,6 +30,7 @@ function UserForm () {
     <div>
       <h1>Your Enquiry</h1>
       <form onSubmit={(e) => onSubmit(e)}>
+        <input type="text" value={formInfo.companyName} onChange={onChange} name="companyName" placeholder="Company Name" /><br />
         <input type="text" value={formInfo.name} onChange={onChange} name="name" placeholder="Name" minLength="2" /><br />
         <input type="text" value={formInfo.surname} onChange={onChange} name="surname" placeholder="Surname" /><br />
         <input type="email" value={formInfo.email} onChange={onChange} name="email" placeholder="Email" /><br />

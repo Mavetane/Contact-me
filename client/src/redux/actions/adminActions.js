@@ -25,3 +25,18 @@ export const signin = (formInfo) => {
     }
   }
 }
+
+
+export const getEnquiries = () => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.get('http://localhost:6005/users');
+      console.log('data', data)
+      dispatch({ type: "GET_ENQUIRIES", payload: data })
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
+
+
