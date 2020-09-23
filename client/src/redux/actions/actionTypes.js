@@ -3,3 +3,4 @@ export const GET_COMPANIES = "GET_COMPANIES";
 export const ADD_ADMIN = "ADD_ADMIN";
 export const GET_ENQUIRIES = "GET_ENQUIRIES";
 export const ADD_ENQUIRY = "ADD_ENQUIRY";
+export const HANDLE_AUTH = "HANDLE_AUTH";

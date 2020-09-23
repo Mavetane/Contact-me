@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import LandingPage from './containiers/LandingPage';
 import { getCompanies } from './redux/actions/companyActions';
+import { loadRoutes } from './routes/index'
+
 
 function App () {
   const dispatch = useDispatch()
@@ -17,7 +19,9 @@ function App () {
         <h1>Contact Me</h1>
         <a>Admin site</a>
       </header>
-      <LandingPage />
+      {/* <LandingPage /> */}
+      {loadRoutes()}
+
     </div>
   );
 }
