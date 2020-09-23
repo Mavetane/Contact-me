@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import history from '../../routes/history'
+import RegisterCompany from './RegisterCompany';
 
 function Enquiries () {
-  const [enquiries, setEnquiries] = useState([])
+  const [enquiries, setEnquiries] = useState([]);
+  const [state, setState] = useState(false)
 
   useEffect(async () => {
     try {
@@ -21,19 +22,24 @@ function Enquiries () {
     <h4>{each.mobileNo}</h4>
     <p>{each.question}</p>
   </div>)
+  const handleState = () => {
+    setState(!state)
+  }
 
-  function refreshPage () {
-    window.location.reload();
-  }
-  const navigatePage = (routeName) => {
-    history.push(routeName)
-    refreshPage()
-  }
   return (
     <div>
-      <button onClick={navigatePage('register')}>Register Company</button>
-      <h1>Enquiries</h1>
-      {enquiry()}
+      {/* <div onClick={navigatePage('company')}>
+        <a>Register Company</a>
+      </div> */}
+      {state == false ? <button onClick={handleState}>Register Company</button> : <button onClick={handleState}>Enquiries</button>}
+      {state == false ?
+        <div>
+          <h1>Enquiries</h1>
+          {enquiry()}
+        </div>
+        : <div>
+          <RegisterCompany />
+        </div>}
     </div>
   )
 }

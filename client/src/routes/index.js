@@ -7,7 +7,6 @@ import LandingPage from '../containiers/LandingPage';
 import Enquiries from "../containiers/admin/Enquiries";
 import Register from "../containiers/admin/Register";
 import Signin from "../containiers/admin/SignIn";
-import RegisterCompany from "../containiers/admin/RegisterCompany";
 
 
 
@@ -41,12 +40,6 @@ export const loadRoutes = () => {
           path="/signin"
           component={props => <Signin {...props} />}
         />
-        <PublicRoute
-          exact
-          path="/register"
-          component={props => <RegisterCompany {...props} />}
-        />
-
       </div>
     </Router>
   )
