@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { sendEnquiry } from '../redux/actions/userAction';
 
 
 function UserForm () {
   const [formInfo, setFormInfo] = useState({ name: "", surname: "", email: "", mobileNo: "", question: "" });
-
+  const dispatch = useDispatch()
 
 
   const onChange = (e) => {
@@ -13,6 +15,7 @@ function UserForm () {
   }
   const onSubmit = (e) => {
     e.preventDefault()
+    dispatch(sendEnquiry(formInfo))
     // if (formInfo.name == "") alert('Name input is required')
     // if (formInfo.surname == "") alert('Surname input is required')
     // if (formInfo.email == "") alert('Email input is required')
