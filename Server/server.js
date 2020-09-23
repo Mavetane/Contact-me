@@ -3,12 +3,14 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const port = 6005;
-const { MongoServer } = require('./config/keys')
+const { MongoServer } = require('./config/keys');
+const { admin } = require('./routes/admin')
 
 const server = express();
 server.use(cors());
 server.use(bodyParser.json());
-MongoServer(server)
+MongoServer(server);
+admin(server);
 
 
 
