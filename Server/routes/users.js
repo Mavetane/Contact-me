@@ -3,9 +3,9 @@ const express = require('express');
 
 const user = (server) => {
   server.post('/user', async (req, res) => {
-    const { name, surname, email, mobileNo } = req.body;
+    const { name, surname, email, mobileNo, question } = req.body;
     try {
-      var newUser = await new userModel({ name, surname, email, mobileNo }).save()
+      var newUser = await new userModel({ name, surname, email, mobileNo, question }).save()
       console.log("user", newUser);
       res.send(newUser)
     } catch (e) {
